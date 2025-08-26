@@ -1,0 +1,505 @@
+Core Product Modules
+1) Accounts & Access
+
+User registration/login, email/phone OTP
+
+Roles & RBAC: Super Admin, Org Admin, Instructor, Learner, Parent/Manager, Finance, Support
+
+SSO: Google, Microsoft, Apple; SAML/OAuth2
+
+User profiles, avatars, bios, social links
+
+Org hierarchy (departments, teams), cohorts/batches, groups
+
+Consent management (privacy/marketing), age-gate/parental consent
+
+2) Course & Curriculum Management
+
+Course types: Self-paced, Live, Blended, Micro-courses, Programs/Pathways
+
+Curriculum builder (drag-drop sections/lessons)
+
+Content types: video, audio, PDF/EPUB, HTML, SCORM 1.2/2004, xAPI/TinCan, H5P, external embeds
+
+Prerequisites, drip scheduling, release by date/progress
+
+Versions, draft/publish workflow, cloning/templating
+
+Resource library & media manager (transcoding, thumbnails, captions)
+
+3) Assessment & Assignments
+
+Question bank (MCQ, MSQ, True/False, Numeric, Short/Long answer, Match, Fill-blank, Code, File upload)
+
+Quiz/exam builder, randomization, time limits, open/close windows
+
+Assignments with rubrics, peer review, plagiarism detection
+
+Auto-grading + manual grading, regrade, item analysis
+
+Proctoring (browser lockdown, webcam, flags)
+
+Gradebook, pass criteria, remediation
+
+4) Learning Experience
+
+Player with resume/continue, speed control, note-taking, bookmarks
+
+Transcripts, subtitles, translations
+
+Discussions/Q&A per lesson, reactions, mentions
+
+Checkpoints, summaries, flashcards
+
+Mobile-responsive web + native apps (optional)
+
+Accessibility (WCAG 2.1 AA), keyboard nav, high-contrast, captions
+
+5) Certifications & Credentials
+
+Certificates (templates, variables, QR/verify URL)
+
+Badges/points, leaderboards, streaks (gamification)
+
+CE/CPD credits, credit rules, expiry/renewal
+
+Public learner profile & shareable achievements
+
+6) E-Commerce & Monetization
+
+Product types: single course, bundles, subscriptions/memberships, program passes, corporate seats
+
+Pricing: one-time, tiered, region-based, early-bird, installments
+
+Coupons, gift cards, referral links, upsells/cross-sells
+
+Payment gateways (Stripe, PayPal, SSLCOMMERZ/bKash/Nagad where applicable), Apple/Google IAP
+
+Taxes (VAT/GST), tax IDs, invoices, credit notes, refunds, disputes
+
+Multi-currency, FX display, rounding rules
+
+Payouts to instructors (revenue share, thresholds, statements, withholding)
+
+7) Storefront & CMS
+
+Site builder: themes, sections, page/landing builder
+
+Course catalog, filters, search, wishlists, comparisons
+
+SEO: meta tags, schema, sitemaps, open graph
+
+Blog, testimonials, case studies
+
+Localization & i18n (UI + content labels)
+
+8) Enrollment & Licensing
+
+Individual purchase, bulk/corporate licensing, seat management
+
+Group enrollments, enrollment keys, private courses
+
+Drip rules, enrollment expiry, extensions, suspensions
+
+9) Messaging & Engagement
+
+Email/SMS/Push notifications (event-based + campaigns)
+
+In-app inbox, announcements, broadcast
+
+Reminders (due dates, inactivity nudges), win-back sequences
+
+Webhooks for custom automation
+
+10) Live Learning & Scheduling
+
+Live classes/webinars: Zoom/Teams/Google Meet integration
+
+Session scheduling, RSVPs, calendar sync (ICS)
+
+Attendance tracking, recordings & replay
+
+Breakout rooms, polls, whiteboards (via integrations)
+
+11) Analytics & Reporting
+
+Dashboards: revenue, sales funnel, refunds, conversions
+
+Learning analytics: progress, time-on-task, quiz stats, cohort analysis
+
+Engagement: DAU/WAU/MAU, retention, churn risk
+
+Compliance/completion reports (export CSV/XLSX)
+
+xAPI/LRS integration, data warehouse export (S3/BigQuery)
+
+12) Support & Service
+
+Help center/FAQ, knowledge base
+
+Ticketing system integration (Zendesk/Freshdesk/JSM)
+
+Chat widget (Intercom/Drift), chatbot (optional)
+
+SLA dashboards for B2B customers
+
+13) Security, Privacy & Compliance
+
+Data encryption at rest/in transit, secrets management
+
+Fine-grained permissions, audit logs, IP/device limits
+
+DRM/watermarking, download controls, domain lock
+
+Rate limiting, WAF/CDN, backups & restore, disaster recovery
+
+GDPR/CCPA/PDPA tooling (DPIA templates, DSR workflows)
+
+Cookie consent, privacy policy templates
+
+14) Performance & DevOps
+
+CDN for assets/video, adaptive bitrate streaming
+
+Caching (object/page), pagination/virtualization
+
+Queue workers, async jobs, cron/schedulers
+
+Observability (logs, metrics, tracing), SLOs
+
+Multi-region readiness (optional)
+
+15) Integrations
+
+Payments: Stripe/PayPal/local gateways
+
+Video: Mux/Vimeo/Cloudflare Stream
+
+Email/SMS: SES, SendGrid, Mailgun, Twilio
+
+CRM/Marketing: HubSpot, Salesforce, Mailchimp
+
+HRIS/ERP (B2B): Workday, BambooHR, SAP SuccessFactors
+
+Storage: S3/GCS/MinIO
+
+Others: Zapier/Make, Webhooks, GraphQL/REST API
+
+16) AI-Powered Features (Optional but Valuable)
+
+Course outline generator, lesson script drafts
+
+Quiz & question-bank generator; distractor suggestions
+
+Auto-grading short answers & coding tasks
+
+Personal learning paths, recommendations
+
+AI tutor/assistant in course player
+
+Auto-transcription, translation, summary, highlights
+
+Cheating/anomaly detection in proctoring
+
+Back-Office / Admin Modules
+
+Super Admin Console (SaaS): tenants, plans, billing, usage limits, metering, feature flags, custom domains/SSL, themes, white-label.
+
+Org Admin: user import (CSV/API), SSO config, departments/teams, role mapping, private catalog, manager dashboards, compliance targets.
+
+Finance: pricing, taxes, payouts, invoices, refunds, reconciliation, ledgers.
+
+Content Ops: course approvals, content QA, copyright checks, versioning, archive.
+
+Support Ops: tickets, conversations, SLA monitors, impersonate user (with audit).
+
+Data & Governance: data exports, retention policies, audit trails, DSR requests.
+
+Marketplace Ops (if multi-instructor): instructor onboarding/KYC, contract & rev-share, storefront moderation.
+
+Learner-Facing Features (Quick List)
+
+Clean dashboard (continue learning, deadlines)
+
+Pathway view with prerequisite map
+
+“Practice mode” vs “Exam mode”
+
+Notes, highlights, bookmarks, downloads (if allowed)
+
+Discussion/Q&A, peer groups, direct messages (optional)
+
+Certificates & badges wallet, share to LinkedIn
+
+Mobile offline mode (app), low-bandwidth fallback
+
+Instructor-Facing Features (Quick List)
+
+Course/quiz builders with templates
+
+Question bank import/export (CSV/QTI)
+
+Rubrics, peer-review workflows
+
+Live session scheduling + attendance
+
+Sales dashboard (by product, coupon, channel)
+
+Student analytics & interventions (bulk message, nudge)
+
+Minimum Viable → Advanced Roadmap
+
+MVP (Phase 1)
+
+Auth + RBAC, Course builder, Lessons (video/PDF/quiz)
+
+Basic catalog/storefront, Cart/checkout (1 gateway)
+
+Coupons, invoices, email notifications
+
+Progress tracking, certificates, basic analytics
+
+Phase 2
+
+Subscriptions, bundles, affiliates
+
+Live classes, assignments, gradebook
+
+Question bank, proctoring (basic), mobile web polish
+
+SEO + landing builder, multilingual UI
+
+Phase 3
+
+Corporate licensing, SSO/SAML, manager dashboards
+
+Advanced analytics, LRS/xAPI, exports
+
+AI tutor, AI content/quiz gen, recommendations
+
+Marketplace (multi-instructor) + payouts
+
+
+
+
+
+LMS Admin Dashboard.
+
+Goals (what admins need at a glance)
+
+Business: revenue, sales, refunds, conversion
+
+Learning: enrollments, progress, completions
+
+Quality: quiz pass rates, NPS/reviews, support load
+
+Risk/ops: failed payments, proctoring flags, SLA breaches
+
+Top KPIs (header cards)
+
+MRR / Total Revenue (period filter)
+
+New Orders / Refund Rate
+
+Active Learners (7/30d)
+
+Course Completions (rate, trend)
+
+Avg Quiz Score / Pass Rate
+
+Live Session Attendance %
+
+Support Backlog (open/overdue)
+
+System Health (jobs queue, error rate)
+
+Key Widgets (visual + actionable)
+
+Sales Funnel
+
+Visits → Trials → Add-to-Cart → Purchases
+
+Drop-off heatline, top referrers, top coupons
+
+Revenue & Products
+
+Revenue trend (daily/weekly)
+
+Top courses/bundles
+
+Payment failures (by gateway/issuer)
+
+Learning Progress
+
+Cohort progress histogram
+
+Time-on-task vs completion
+
+Stuck learners (no progress 7d)
+
+Assessments
+
+Item analysis (low-discrimination questions)
+
+Proctoring flags timeline
+
+Regrade backlog
+
+Engagement
+
+DAU/WAU/MAU & retention curve
+
+Notification effectiveness (open/click/goal)
+
+Discussion activity & unanswered Qs
+
+Live & Schedules
+
+Upcoming sessions (next 7d)
+
+Attendance forecasts, recordings posted?
+
+Support & Quality
+
+NPS/CSAT trend, recent reviews
+
+Tickets by SLA/priority, top issues
+
+Compliance
+
+Required-course completion by department
+
+Expiring certificates/CPD credits
+
+Quick Actions (always-visible)
+
+Create Course / Coupon / Enrollment
+
+Issue Refund / Invoice
+
+Bulk Enroll (CSV/API)
+
+Send Announcement / Nudge
+
+Generate Report (CSV/XLSX)
+
+Add Instructor / Manager
+
+Filters (global)
+
+Time: Today / 7d / 30d / Custom
+
+Segment: All / Tenant / Department / Cohort / Product
+
+Channel: Web / Mobile / Affiliate
+
+Geography / Currency
+
+Role-Scoped Views
+
+Super Admin: tenants, usage, billing, feature flags
+
+Org Admin: enrollments, compliance, departments
+
+Finance: revenue, taxes, payouts, reconciliation
+
+Content Ops: approvals, versioning, QA queue
+
+Support: tickets, SLA, impersonate user (audited)
+
+Drilldowns (click-through)
+
+Revenue → order list → order detail (items, taxes, timeline)
+
+Learners → profile → activity stream → interventions
+
+Quiz pass rate → exam → question item analysis
+
+Live session → attendance → recording & resources
+
+Alerts (configurable)
+
+Payment fail spike (5× baseline)
+
+Completion below target (< 70%)
+
+Proctoring anomaly (> X flags)
+
+SLA breach risk (tickets > threshold)
+
+Feed/job failures (ETL, workers)
+
+Data Model (minimal essentials)
+
+orders(id, user_id, total, currency, status, gateway, coupon_id, created_at)
+
+order_items(id, order_id, product_id, product_type, price, tax)
+
+enrollments(id, user_id, course_id, status, started_at, completed_at, expires_at)
+
+progress(user_id, course_id, lesson_id, percent, seconds_viewed, updated_at)
+
+assessments(exam_id, course_id, type, opened_at, closed_at)
+
+attempts(id, exam_id, user_id, score, passed, proctor_flags, duration_sec)
+
+sessions(id, course_id, starts_at, ends_at, provider, attendance_pct, recording_url)
+
+reviews(id, user_id, course_id, rating, nps, comment, created_at)
+
+tickets(id, user_id, status, priority, sla_due_at, created_at)
+
+events(id, user_id, verb, object_type, object_id, ts, metadata_json)
+
+Sample KPI Queries (SQL-ish)
+
+Revenue (last 30d)
+SELECT SUM(total) FROM orders WHERE status='paid' AND created_at>=NOW()-INTERVAL '30 days';
+
+Active Learners (7d)
+SELECT COUNT(DISTINCT user_id) FROM events WHERE verb IN('lesson.view','quiz.submit') AND ts>=NOW()-INTERVAL '7 days';
+
+Completion Rate
+SELECT COUNT(*) FILTER (WHERE completed_at IS NOT NULL)::float/COUNT(*) FROM enrollments WHERE started_at>=NOW()-INTERVAL '30 days';
+
+Payment Fail Rate
+SELECT SUM(CASE WHEN status='failed' THEN 1 ELSE 0 END)::float/COUNT(*) FROM orders WHERE created_at>=NOW()-INTERVAL '30 days';
+
+Proctoring Flags per 100 Attempts
+SELECT 100.0*SUM(proctor_flags)::float/COUNT(*) FROM attempts WHERE opened_at>=NOW()-INTERVAL '30 days';
+
+API Contracts (read-only examples)
+
+GET /api/admin/kpis?from=&to=&segment= → { revenue, orders, refunds, active_learners, completion_rate, … }
+
+GET /api/admin/sales/trend?granularity=daily
+
+GET /api/admin/engagement/retention?cohort=YYYY-WW
+
+GET /api/admin/assessments/item-analysis?exam_id=
+
+GET /api/admin/support/overview
+
+GET /api/admin/compliance?department_id=
+
+RBAC & Security
+
+Claims: role, tenant_id, scopes (read:sales, write:refunds, impersonate)
+
+Row-level filters by tenant_id/department
+
+Audit every admin action (who, what, when, from where)
+
+PII minimization in dashboards (aggregate by default)
+
+Implementation Checklist
+
+Metrics store (read model): nightly ETL + near-real-time append
+
+Caching for heavy aggregates; background workers for forecasts
+
+Feature flags for widgets; empty states & loading skeletons
+
+Timezone-aware charts; CSV/XLSX exports; API rate limits
+
+Want me to turn this into a clickable UI mock (React/Tailwind) or a Django Admin + chart setup next?

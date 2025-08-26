@@ -1,61 +1,543 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Boni Academy — Module README Pack
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This document contains **drop‑in README.md files** for each module of the Boni Academy Laravel LMS. Copy each section’s content into the corresponding path in your repo.
 
-## About Laravel
+> Repo root assumed: `/opt/lampp/htdocs/boni-academy`
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Repository layout (suggested)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
+boni-academy/
+├─ app/
+│  ├─ Models/
+│  ├─ Policies/
+│  ├─ Http/
+│  │  ├─ Controllers/
+│  │  ├─ Requests/
+│  │  └─ Resources/
+│  ├─ Services/
+│  │  ├─ Payments/
+│  │  └─ Certificates/
+│  └─ View/Components/
+├─ database/
+│  ├─ factories/
+│  ├─ migrations/
+│  └─ seeders/
+├─ routes/
+├─ resources/
+│  ├─ views/
+│  └─ js/
+├─ tests/
+└─ modules/   # optional: docs per module
+```
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 1) Core & App README
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Path:** `README.md`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+````markdown
+# Boni Academy (Laravel LMS)
 
-## Laravel Sponsors
+Boni Academy is a Laravel‑based Learning Management System with roles for Admin, Instructor, and Student; course authoring; enrollment, quizzes, assignments, discussions; payments (SSLCommerz/bKash/Stripe); certificates; and analytics.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Requirements
+- PHP 8.2+
+- Composer 2+
+- MySQL 8+ (or MariaDB 10.6+)
+- Node 18+ / PNPM or NPM
 
-### Premium Partners
+## Quick start
+```bash
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+npm install && npm run build
+php artisan serve
+````
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Useful commands
 
-## Contributing
+```bash
+php artisan storage:link
+php artisan queue:work
+php artisan optimize:clear
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Modules
 
-## Code of Conduct
+See `/modules/*/README.md` for details.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 2) Users & Auth
 
-## License
+**Path:** `modules/users/README.md`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+````markdown
+# Users & Authentication
+
+Provides user registration, login, email verification, password reset, profile management.
+
+## Packages
+- Laravel Breeze (Blade)
+- Laravel Fortify (optional for 2FA)
+
+## DB
+- `users`: id, name, email, email_verified_at, password
+
+## Commands
+```bash
+php artisan migrate
+php artisan make:seeder DemoUsersSeeder
+````
+
+## Policies
+
+* Gate: `view-dashboard` (any verified user)
+
+## Endpoints
+
+* `GET /login`, `POST /login`
+* `GET /register`, `POST /register`
+* `POST /logout`
+
+```
+```
+
+---
+
+## 3) Roles & Permissions
+
+**Path:** `modules/rbac/README.md`
+
+````markdown
+# Roles & Permissions
+
+Role‑based access control using `spatie/laravel-permission`.
+
+## Roles
+- Admin, Instructor, Student
+
+## Setup
+```bash
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\\Permission\\PermissionServiceProvider"
+php artisan migrate
+````
+
+Seed roles in a seeder and assign via Filament or Tinker.
+
+## Usage
+
+```php
+$user->assignRole('Admin');
+$user->can('course.create');
+```
+
+````
+
+---
+## 4) Categories
+**Path:** `modules/categories/README.md`
+
+```markdown
+# Categories
+
+Hierarchical course categories (optional parent_id).
+
+## DB
+- `categories`: id, parent_id, name, slug, description
+
+## Filament
+- CategoryResource with tree view (optional plugin) or parent select.
+````
+
+````
+
+---
+## 5) Courses
+**Path:** `modules/courses/README.md`
+
+```markdown
+# Courses
+
+Create, manage, and publish courses.
+
+## DB
+- `courses`: id, category_id, instructor_id, title, slug, summary, description, price, level, language, thumbnail, status, visibility, published_at
+
+## Relationships
+- Course belongs to Category & Instructor
+- Course hasMany Modules, Lessons, Quizzes, Announcements
+
+## Routes
+- `GET /courses` (catalog)
+- `GET /courses/{slug}` (detail)
+- Admin CRUD via Filament
+
+## Policies
+- Instructors can manage their own courses
+- Admin can manage all
+````
+
+````
+
+---
+## 6) Modules (Sections)
+**Path:** `modules/course-modules/README.md`
+
+```markdown
+# Course Modules (Sections)
+
+Logical grouping of lessons within a course.
+
+## DB
+- `course_modules`: id, course_id, title, sort_order
+
+## Behavior
+- Sortable (drag to reorder)
+````
+
+````
+
+---
+## 7) Lessons
+**Path:** `modules/lessons/README.md`
+
+```markdown
+# Lessons
+
+Lesson content: video, PDF, or rich text.
+
+## DB
+- `lessons`: id, module_id, title, type[video|pdf|text], content_url, duration_seconds, body_html, sort_order, is_preview
+
+## Storage
+- Use `spatie/laravel-medialibrary` for attachments & thumbnails
+- Video via external storage (S3/Vimeo/YouTube)
+
+## Player
+- Gate check: enrolled users or previewable
+````
+
+````
+
+---
+## 8) Enrollment & Access
+**Path:** `modules/enrollment/README.md`
+
+```markdown
+# Enrollment & Access
+
+Manages free/paid access to courses.
+
+## DB
+- `enrollments`: id, course_id, user_id, price_paid, coupon_code, status, enrolled_at
+
+## Logic
+- Enrollment created after successful order/payment or manual admin add
+- Check middleware: `EnsureEnrolled`
+````
+
+````
+
+---
+## 9) Progress Tracking
+**Path:** `modules/progress/README.md`
+
+```markdown
+# Progress Tracking
+
+Tracks lesson completion & watch time.
+
+## DB
+- `lesson_progress`: id, enrollment_id, lesson_id, completed_at, seconds_watched
+
+## API
+- `POST /api/lessons/{id}/progress`
+````
+
+````
+
+---
+## 10) Quizzes & Question Bank
+**Path:** `modules/quizzes/README.md`
+
+```markdown
+# Quizzes & Questions
+
+Auto‑graded quizzes with attempts.
+
+## DB
+- `quizzes`
+- `questions` (type: mcq, tf, single, multiple)
+- `options` (is_correct)
+- `quiz_attempts` (score)
+- `answers`
+
+## Routes
+- `GET /learn/{course}/quiz/{quiz}`
+- `POST /quiz/{quiz}/attempt`
+
+## Scoring
+- Score = sum(points for correct answers)
+````
+
+````
+
+---
+## 11) Assignments & Submissions
+**Path:** `modules/assignments/README.md`
+
+```markdown
+# Assignments & Submissions
+
+Instructor‑graded submissions with feedback.
+
+## DB
+- `assignments`: id, course_id, title, body, due_at, max_points
+- `submissions`: id, assignment_id, user_id, file_url/text, submitted_at, score, feedback
+
+## Flow
+- Student uploads -> Instructor reviews -> Grade & feedback -> Gradebook
+````
+
+````
+
+---
+## 12) Orders & Payments
+**Path:** `modules/payments/README.md`
+
+```markdown
+# Orders & Payments
+
+Payment gateways: SSLCommerz, bKash (and Stripe for test).
+
+## DB
+- `orders`: id, user_id, total_amount, currency, status, gateway, transaction_id
+- `order_items`: id, order_id, course_id, price
+
+## Service
+- `app/Services/Payments/{Gateway}Driver.php`
+- Interface: `PaymentDriver` with `create`, `verify`, `refund` (optional)
+
+## Webhooks
+- `/payments/sslcommerz/callback`
+- `/payments/bkash/callback`
+````
+
+````
+
+---
+## 13) Certificates
+**Path:** `modules/certificates/README.md`
+
+```markdown
+# Certificates
+
+Auto‑generate completion certificates (PDF) and verify by code.
+
+## DB
+- `certificates`: id, user_id, course_id, code(uuid), issued_at
+
+## Package
+- `barryvdh/laravel-dompdf`
+
+## Routes
+- `GET /certificate/{code}` (verify)
+````
+
+````
+
+---
+## 14) Announcements & Discussions
+**Path:** `modules/community/README.md`
+
+```markdown
+# Announcements & Discussions
+
+Course announcements and threaded Q&A.
+
+## DB
+- `announcements`
+- `discussions`, `discussion_replies`
+
+## Moderation
+- Policy: instructors & admins can moderate
+````
+
+````
+
+---
+## 15) Admin Panel (Filament)
+**Path:** `modules/admin/README.md`
+
+```markdown
+# Admin Panel (Filament)
+
+Rapid CRUD & dashboards for admins/instructors.
+
+## Setup
+```bash
+composer require filament/filament:"^3.2"
+php artisan make:filament-user
+````
+
+## Resources
+
+* Users, Roles, Categories, Courses, Modules, Lessons, Quizzes, Assignments, Orders
+
+## Access
+
+* Restrict to `Admin` (and limited Instructor pages)
+
+```
+```
+
+---
+
+## 16) Media & Files
+
+**Path:** `modules/media/README.md`
+
+````markdown
+# Media & Files
+
+Use `spatie/laravel-medialibrary` for uploads and conversions.
+
+## Setup
+```bash
+composer require spatie/laravel-medialibrary
+php artisan vendor:publish --provider="Spatie\\MediaLibrary\\MediaLibraryServiceProvider" --tag=migrations
+php artisan migrate
+php artisan storage:link
+````
+
+````
+
+---
+## 17) Notifications
+**Path:** `modules/notifications/README.md`
+
+```markdown
+# Notifications
+
+Use Laravel Notifications (mail + database). Optional SMS provider.
+
+## Events
+- Enrollment created, Assignment graded, Quiz passed, Certificate issued
+````
+
+````
+
+---
+## 18) Public Site (Catalog & Learn)
+**Path:** `modules/site/README.md`
+
+```markdown
+# Public Site
+
+Catalog, course details, student dashboard, lesson player.
+
+## Routes
+- `/` Home
+- `/courses` Catalog
+- `/courses/{slug}` Detail
+- `/dashboard` Student dashboard
+- `/learn/{course}/{lesson}` Player
+````
+
+````
+
+---
+## 19) API (Optional)
+**Path:** `modules/api/README.md`
+
+```markdown
+# API (Optional)
+
+Provide REST/JSON endpoints for mobile or SPA.
+
+## Auth
+- Laravel Sanctum
+
+## Example endpoints
+- `GET /api/courses`
+- `POST /api/courses/{id}/enroll`
+- `GET /api/progress`
+````
+
+````
+
+---
+## 20) DevOps & Environments
+**Path:** `modules/devops/README.md`
+
+```markdown
+# DevOps & Environments
+
+## Envs
+- `local`, `staging`, `production`
+
+## Commands
+```bash
+php artisan optimize
+php artisan config:cache
+php artisan route:cache
+````
+
+## Backups
+
+* `spatie/laravel-backup` (cron daily)
+
+```
+```
+
+---
+
+## 21) Security & Compliance
+
+**Path:** `modules/security/README.md`
+
+```markdown
+# Security & Compliance
+
+- Enforce policies & gates; test with Pest
+- CSRF, rate limit, email verification, (optional) 2FA
+- Validate uploads and limit file size; ClamAV optional
+- Regular dependency updates
+```
+
+````
+
+---
+## 22) Localization (BN/EN)
+**Path:** `modules/i18n/README.md`
+
+```markdown
+# Localization
+
+- `APP_TIMEZONE=Asia/Dhaka`
+- Set `APP_LOCALE` to `bn` or `en`
+- Store copy in `lang/bn` and `lang/en`
+````
+
+````
+
+---
+## Copy helper (optional script)
+**Path:** `scripts/copy-readmes.sh`
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p modules/{users,rbac,categories,courses,course-modules,lessons,enrollment,progress,quizzes,assignments,payments,certificates,community,admin,media,notifications,site,api,devops,security,i18n}
+# Copy from this doc manually or redirect each section to the target README.md
+````
